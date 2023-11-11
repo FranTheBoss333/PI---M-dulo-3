@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #D6D6D9;
+            font-family: 'Avignon Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #D6D6D9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #5E5E5E;
+        }
+        .options-container {
+            background-color: #9D9EA0;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .header {
+            font-size: 30px;
+            color: #5E5E5E;
+        }
+        .option-button {
+            background-color: #323232;
+            color: #D6D6D9;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PetFeliz</div>
+        <br>
+        <div class="options-container">
+            <div class="header">Escolha a Opção</div>
+            <br>
+            <button class="option-button" id="jButton1">
+                Cadastro de Consultas Veterinárias
+            </button>
+            <button class="option-button" id="jButton4">
+                Cadastro de Produtos
+            </button>
+            <button class="option-button" id="jButton5">
+                Controle de Caixa
+            </button>
+            <button class="option-button" id="jButton6">
+                Cadastros
+            </button>
+            <button class="option-button" id="jButton2">
+                Sair
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("jButton1").addEventListener("click", function () {
+            window.location.href = "tela_cadastro_de_consulta.html";
+        });
+
+        document.getElementById("jButton4").addEventListener("click", function () {
+            window.location.href = "tela_cadastro_de_produto.html";
+        });
+
+        document.getElementById("jButton5").addEventListener("click", function () {
+            window.location.href = "tela_controle_de_caixa.html";
+        });
+
+        document.getElementById("jButton6").addEventListener("click", function () {
+            alert("Função ainda não implementada.");
+        });
+
+        document.getElementById("jButton2").addEventListener("click", function () {
+            window.location.href = "tela_inicial.html";
+        });
+    </script>
+</body>
+</html>

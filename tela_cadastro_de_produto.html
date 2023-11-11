@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #C2E4D8;
+            margin: 0;
+            padding: 0;
+            font-family: 'Avignon Pro', sans-serif;
+        }
+        .container {
+            background-color: #C2E4D8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #445654;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #809D97;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .header {
+            font-size: 30px;
+            color: #445654;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .label {
+            font-size: 24px;
+            color: #445654;
+            width: 40%;
+            white-space: nowrap;
+        }
+        .input {
+            font-size: 18px;
+            padding: 5px;
+            background-color: #C2E4D8;
+            border: none;
+            border-bottom: 2px solid #445654;
+            width: 70%;
+        }
+        .submit-button {
+            background-color: #445654;
+            color: #C2E4D8;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button {
+            background-color: #445654;
+            color: #C2E4D8;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PetFeliz</div>
+        <br>
+        <div class="form-container">
+            <div class="header">Cadastrar Produto</div>
+            <br>
+            <div class="form-group">
+                <label class="label">Nome:</label>
+                <input class="input" type="text" id="f1" placeholder="Digite o nome do Produto">
+            </div>
+            <div class="form-group">
+                <label class="label">Tipo:</label>
+                <input class="input" type="text" id="f2" placeholder="Digite o tipo do Produto">
+            </div>
+            <div class="form-group">
+                <label class="label">Descrição:</label>
+                <input class="input" type="text" id="f3" placeholder="Digite a descrição do Produto">
+            </div>
+            <div class="form-group">
+                <label class="label">Empresa:</label>
+                <input class="input" type="text" id="f4" placeholder="Digite o nome da empresa">
+            </div>
+            <div class="form-group">
+                <label class="label">Preço:</label>
+                <input type="number" step="0.01" class="input" type="text" id="f5" placeholder="Digite o preço do Produto">
+            </div>
+            <div class="form-group">
+                <label class="label">Código:</label>
+                <input class="input" type="text" id="f6" placeholder="Digite o código do Produto">
+            </div>
+            <br>
+            <button class="submit-button" id="jButton6">Cadastrar</button>
+            <button class="back-button" id="jButton5">&lt;</button>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var nome = document.getElementById("f1").value;
+            var tipo = document.getElementById("f2").value;
+            var descricao = document.getElementById("f3").value;
+            var empresa = document.getElementById("f4").value;
+            var preco = document.getElementById("f5").value;
+            var codigo = document.getElementById("f6").value;
+
+            if (nome === "" || tipo === "" || descricao === "" || empresa === "" || preco === "" || codigo === "") {
+                alert("Por favor, preencha todos os campos.");
+            } else {
+                alert("Cadastro realizado com sucesso!");
+            }
+        }
+
+        document.getElementById("jButton6").addEventListener("click", validateForm);
+
+        document.getElementById("jButton5").addEventListener("click", function () {
+            window.location.href = "tela_seleção.html";
+        });
+    </script>
+</body>
+</html>

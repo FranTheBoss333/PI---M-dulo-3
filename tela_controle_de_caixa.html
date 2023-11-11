@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #EEE4FF;
+            font-family: 'Avignon Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #EEE4FF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .sub-container {
+            background-color: #EEE4FF;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #4F417E;
+            text-align: center;
+        }
+        .subtitle {
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            color: #4F417E;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #7C63D5;
+            border-radius: 10px 0 0 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 45%;
+            height: 22em;
+        }
+        .form-container2 {
+            background-color: #7C63D5;
+            border-radius: 0 10px 10px 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 45%;
+            height: 22em;
+        }
+        .header {
+            font-size: 24px;
+            color: #4F417E;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .form-group2 {
+            display: block;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .label {
+            font-size: 24px;
+            color: #4F417E;
+            width: 40%;
+        }
+        .input {
+            font-size: 18px;
+            padding: 5px;
+            background-color: #EEE4FF;
+            border: none;
+            border-bottom: 2px solid #4F417E;
+            width: 100%;
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        .submit-button {
+            background-color: #2D255A;
+            color: #EEE4FF;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button {
+            background-color: #2D255A;
+            color: #EEE4FF;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .table-container {
+            background-color: #EEE4FF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #4F417E;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #7C63D5;
+            color: #EEE4FF;
+        }
+        .total {
+            border: 1px solid #4F417E;
+            font-size: 20px;
+            color: #4F417E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PetFeliz</div>
+        <br>
+        <div class="subtitle">Controle de Caixa</div>
+        <br>
+        <div class="sub-container">
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="label">Código:</label>
+                    <input class="input" type="text" id="field" placeholder="Digite o código do Produto">
+                    <button class="submit-button" id="jButton1">OK</button>
+                </div>
+                <div class="form-group">
+                    <label class="label">Nome:</label>
+                    <div id="label12" class="label"></div>
+                </div>
+                <div class="form-group">
+                    <label class="label">Tipo:</label>
+                    <div id="label13" class="label"></div>
+                </div>
+                <div class="form-group">
+                    <label class="label">Descrição:</label>
+                    <div id="label14" class="label"></div>
+                </div>
+                <div class="form-group">
+                    <label class="label">Empresa:</label>
+                    <div id="label15" class="label"></div>
+                </div>
+                <div class="form-group">
+                    <label class="label">Preço:</label>
+                    <div id="label16" class="label"></div>
+                </div>
+                <div class="form-group">
+                    <label class="label">Código:</label>
+                    <div id="label17" class="label"></div>
+                </div>
+            </div>
+            <div class="form-container2">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela">
+                            <tr>
+                                <td>Produto 1</td>
+                                <td>R$ 10.00</td>
+                            </tr>
+                            <tr>
+                                <td>Produto 2</td>
+                                <td>R$ 20.00</td>
+                            </tr>
+                            <tr>
+                                <td>Produto 3</td>
+                                <td>R$ 15.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total">Valor Total: <span id="label19">R$ 45.00</span></div>
+                </div>
+                <div class="form-group2">
+                    <br>
+                    <button class="submit-button" id="jButton6">Adicionar</button>
+                    <button class="submit-button" id="jButton7">Finalizar</button>
+                    <br>
+                    <br>
+                    <button class="back-button" id="jButton5">&lt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("jButton1").addEventListener("click", function () {
+            alert("Função ainda não implementada.");
+        });
+        document.getElementById("jButton6").addEventListener("click", function () {
+            alert("Função ainda não implementada.");
+        });
+        document.getElementById("jButton7").addEventListener("click", function () {
+            alert("Compra finalizada com sucesso!");
+            window.location.href = "tela_seleção.html";
+        });
+        document.getElementById("jButton5").addEventListener("click", function () {
+            window.location.href = "tela_seleção.html";
+        });
+    </script>
+</body>
+</html>

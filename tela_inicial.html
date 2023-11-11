@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #E2D1B5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .form {
+            background-color: #9E8266;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 {
+            font-family: "Franklin Gothic Pro Heavy", sans-serif;
+            font-size: 48px;
+            color: #72594A;
+        }
+        label {
+            text-align: center;
+            font-size: 30px;
+            color: #72594A;
+            width: 40%;
+            white-space: nowrap;
+            font-family: 'Avignon Pro', sans-serif;
+        }
+        input, button {
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            font-size: 18px;
+            background-color: #E2D1B5;
+        }
+        button {
+            background-color: #3E3028;
+            font-family: "Avignon Pro", sans-serif;
+            font-size: 30px;
+            color: #E2D1B5;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PetFeliz</h1>
+        <div class="form">
+            <label for="login">Login</label>
+            <input type="text" id="login" placeholder="Digite aqui o seu Login">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Digite aqui a sua Senha">
+            <button id="entrarButton">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("entrarButton").addEventListener("click", function () {
+            var loginInput = document.getElementById("login");
+            var senhaInput = document.getElementById("senha");
+
+            if (loginInput.value.trim() === "" || senhaInput.value.trim() === "") {
+                alert("Por favor, preencha todos os campos.");
+            } else {
+                window.location.href = "tela_seleção.html";
+            }
+        });
+    </script>
+</body>
+</html>

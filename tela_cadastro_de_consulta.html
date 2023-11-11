@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #7CF0FD;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            display: flex;
+            background-color: #17A7AD;
+            border-radius: 10px;
+            text-align: left;
+            padding: 20px;
+        }
+        .section {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .section label {
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 20px;
+            color: #105F62;
+            white-space: nowrap;
+        }
+        .section label.header {
+            font-weight: bold;
+            font-size: 24px;
+            color: #105F62;
+            margin-top: 10px;
+        }
+        .section input, .section select {
+            background-color: #7CF0FD;
+            border: none;
+            border-bottom: 2px solid #105F62;
+            font-size: 18px;
+            padding: 5px;
+            max-width: 100%;
+        }
+        .buttons {
+            display: block;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            background-color: #105F62;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            color: #7CF0FD;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #105F62;
+            text-align: center;
+        }
+        .subtitle {
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            color: #105F62;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">PetFeliz</div>
+    <br>
+    <div class="subtitle">Cadastrar Consulta</div>
+    <br>
+    <div class="form-container">
+        <div class="section">
+            <label class="header">Pet:</label>
+            <select id="pet">
+                <option value="selecionar">Selecionar Existente</option>
+            </select>
+            <label for="petName">Nome:</label>
+            <input type="text" id="petName" placeholder="Digite o nome do Pet">
+            <label for="species">Espécie:</label>
+            <input type="text" id="species" placeholder="Digite a espécie do Pet">
+            <label for="breed">Raça:</label>
+            <input type="text" id="breed" placeholder="Digite a raça do Pet">
+            <label for="sex">Sexo:</label>
+            <input type="text" id="sex" placeholder="Digite o sexo do Pet">
+        </div>
+        <div class="section">
+            <label class="header">Cliente:</label>
+            <select id="client">
+                <option value="selecionar">Selecionar Existente</option>
+            </select>
+            <label for="clientName">Nome:</label>
+            <input type="text" id="clientName" placeholder="Digite o nome do Cliente">
+            <label for="age">Idade:</label>
+            <input type="number" id="age" placeholder="Digite a idade do Cliente">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" placeholder="Digite o CPF do Cliente">
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" placeholder="Digite o endereço do Cliente">
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" placeholder="Digite o telefone do Cliente">
+        </div>
+        <div class="section">
+            <label class="header">Consulta:</label>
+            <label for="date">Data:</label>
+            <input type="date" id="date">
+            <label for="petDisease">Doença do Pet:</label>
+            <input type="text" id="petDisease" placeholder="Digite a doença do Pet que está sendo consultado">
+            <label for="treatment">Tratamento:</label>
+            <input type="text" id="treatment" placeholder="Digite o tratamento do Pet que está sendo consultado">
+            <label for="totalValue">Valor Total:</label>
+            <input type="number" step="0.01" id="totalValue" placeholder="Digite o valor total da Consulta">
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="submit">Cadastrar</button>
+        <br>
+        <br>
+        <button id="back" style="font-size: 18px;">&lt;</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            var petName = document.getElementById("petName").value;
+            var species = document.getElementById("species").value;
+            var breed = document.getElementById("breed").value;
+            var sex = document.getElementById("sex").value;
+            var clientName = document.getElementById("clientName").value;
+            var age = document.getElementById("age").value;
+            var cpf = document.getElementById("cpf").value;
+            var address = document.getElementById("address").value;
+            var phone = document.getElementById("phone").value;
+            var date = document.getElementById("date").value;
+            var petDisease = document.getElementById("petDisease").value;
+            var treatment = document.getElementById("treatment").value;
+            var totalValue = document.getElementById("totalValue").value;
+
+            if (
+                petName === "" || species === "" || breed === "" || sex === "" ||
+                clientName === "" || age === "" || cpf === "" || address === "" || phone === "" ||
+                date === "" || petDisease === "" || treatment === "" || totalValue === ""
+            ) {
+                alert("Por favor, preencha todos os campos.");
+            } else {
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "tela_seleção.html";
+            }
+        }
+
+        document.getElementById("submit").addEventListener("click", validateForm);
+        
+        document.getElementById("back").addEventListener("click", function () {
+            window.location.href = "tela_seleção.html";
+        });
+    </script>
+</body>
+</html>
