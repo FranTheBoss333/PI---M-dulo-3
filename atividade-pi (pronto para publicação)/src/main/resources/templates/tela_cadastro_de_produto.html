@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #C2E4D8;
+            margin: 0;
+            padding: 0;
+            font-family: 'Avignon Pro', sans-serif;
+        }
+        .container {
+            background-color: #C2E4D8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #445654;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #809D97;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-db {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .header {
+            font-size: 30px;
+            color: #445654;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .label {
+            font-size: 24px;
+            color: #445654;
+            width: 40%;
+            white-space: nowrap;
+        }
+        .input {
+            font-size: 18px;
+            padding: 5px;
+            background-color: #C2E4D8;
+            border: none;
+            border-bottom: 2px solid #445654;
+            width: 70%;
+        }
+        .submit-button {
+            background-color: #445654;
+            color: #C2E4D8;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button {
+            background-color: #445654;
+            color: #C2E4D8;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PetFeliz</div>
+        <br>
+        <div class="form-container">
+            <form class="form-db" th:action="@{/produto/cadastrar}" th:object="${produto}" method="post">
+                <div class="header">Cadastrar Produto</div>
+                <br>
+                <div class="form-group">
+                    <label class="label" for="nome">Nome:</label>
+                    <input class="input" type="text" id="nome" th:field="*{nome}" placeholder="Digite o nome do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="tipo">Tipo:</label>
+                    <input class="input" type="text" id="tipo" th:field="*{tipo}" placeholder="Digite o tipo do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="descricao">Descrição:</label>
+                    <input class="input" type="text" id="descricao" th:field="*{descricao}" placeholder="Digite a descrição do Produto">
+                </div>
+                <div class="form-group">
+                    <label class="label" for="empresa">Empresa:</label>
+                    <input class="input" type="text" id="empresa" th:field="*{nomeDaEmpresa}" placeholder="Digite o nome da empresa" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="preco">Preço:</label>
+                    <input type="number" step="0.01" class="input" id="preco" th:field="*{preco}" placeholder="Digite o preço do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="codigo">Código:</label>
+                    <input class="input" type="text" id="codigo" th:field="*{codigo}" placeholder="Digite o código do Produto" required>
+                </div>
+                <br>
+                <button class="submit-button" type="submit">Cadastrar</button>
+            </form>
+            <button class="back-button" id="jButton5">&lt;</button>
+        </div>      
+    </div>
+
+    <script>
+        document.getElementById("jButton5").addEventListener("click", function () {
+            window.location.href = "/selecao";
+        });
+    </script>
+</body>
+</html>

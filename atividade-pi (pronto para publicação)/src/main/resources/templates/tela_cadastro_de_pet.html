@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PetFeliz</title>
+    <style>
+        body {
+            background-color: #7CF0FD;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            display: flex;
+            background-color: #17A7AD;
+            border-radius: 10px;
+            text-align: left;
+            padding: 20px;
+        }
+        .section {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .section label {
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 20px;
+            color: #105F62;
+            white-space: nowrap;
+        }
+        .section label.header {
+            font-weight: bold;
+            font-size: 24px;
+            color: #105F62;
+            margin-top: 10px;
+        }
+        .section input, .section select {
+            background-color: #7CF0FD;
+            border: none;
+            border-bottom: 2px solid #105F62;
+            font-size: 18px;
+            padding: 5px;
+            max-width: 100%;
+        }
+        .buttons {
+            display: block;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            background-color: #105F62;
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            color: #7CF0FD;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .title {
+            font-family: 'Franklin Gothic Pro Heavy', sans-serif;
+            font-size: 36px;
+            color: #105F62;
+            text-align: center;
+        }
+        .subtitle {
+            font-family: 'Avignon Pro', sans-serif;
+            font-size: 30px;
+            color: #105F62;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">PetFeliz</div>
+    <br>
+    <div class="subtitle">Cadastrar Pet</div>
+    <br>
+    <form class="form-db" th:action="@{/pet/cadastrar}" th:object="${pet}" method="post">
+        <div class="form-container">
+            <div class="section">
+                <label class="header">Pet:</label>
+                <label for="petName">Nome:</label>
+                <input type="text" id="petName" th:field="*{nome}" placeholder="Digite o nome do Pet" required>
+                <label for="species">Espécie:</label>
+                <input type="text" id="species" th:field="*{especie}" placeholder="Digite a espécie do Pet" required>
+                <label for="breed">Raça:</label>
+                <input type="text" id="breed" th:field="*{raca}" placeholder="Digite a raça do Pet" required>
+                <label for="sex">Sexo:</label>
+                <input type="text" id="sex" th:field="*{sexo}" placeholder="Digite o sexo do Pet" required>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="submit">Cadastrar</button>
+        </div>
+        <br>
+        <br>
+    </form>
+    <div class="buttons">
+        <button id="back" style="font-size: 18px;">&lt;</button>
+    </div>
+
+    <script>
+        document.getElementById("back").addEventListener("click", function () {
+            window.location.href = "/consulta";
+        });
+    </script>
+</body>
+</html>
