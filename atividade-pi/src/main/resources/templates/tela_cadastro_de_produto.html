@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>PetFeliz</title>
     <style>
@@ -27,6 +27,12 @@
             background-color: #809D97;
             border-radius: 10px;
             padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-db {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -83,58 +89,43 @@
         <div class="title">PetFeliz</div>
         <br>
         <div class="form-container">
-            <div class="header">Cadastrar Produto</div>
-            <br>
-            <div class="form-group">
-                <label class="label">Nome:</label>
-                <input class="input" type="text" id="f1" placeholder="Digite o nome do Produto">
-            </div>
-            <div class="form-group">
-                <label class="label">Tipo:</label>
-                <input class="input" type="text" id="f2" placeholder="Digite o tipo do Produto">
-            </div>
-            <div class="form-group">
-                <label class="label">Descrição:</label>
-                <input class="input" type="text" id="f3" placeholder="Digite a descrição do Produto">
-            </div>
-            <div class="form-group">
-                <label class="label">Empresa:</label>
-                <input class="input" type="text" id="f4" placeholder="Digite o nome da empresa">
-            </div>
-            <div class="form-group">
-                <label class="label">Preço:</label>
-                <input type="number" step="0.01" class="input" type="text" id="f5" placeholder="Digite o preço do Produto">
-            </div>
-            <div class="form-group">
-                <label class="label">Código:</label>
-                <input class="input" type="text" id="f6" placeholder="Digite o código do Produto">
-            </div>
-            <br>
-            <button class="submit-button" id="jButton6">Cadastrar</button>
+            <form class="form-db" th:action="@{/produto/cadastrar}" th:object="${produto}" method="post">
+                <div class="header">Cadastrar Produto</div>
+                <br>
+                <div class="form-group">
+                    <label class="label" for="nome">Nome:</label>
+                    <input class="input" type="text" id="nome" th:field="*{nome}" placeholder="Digite o nome do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="tipo">Tipo:</label>
+                    <input class="input" type="text" id="tipo" th:field="*{tipo}" placeholder="Digite o tipo do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="descricao">Descrição:</label>
+                    <input class="input" type="text" id="descricao" th:field="*{descricao}" placeholder="Digite a descrição do Produto">
+                </div>
+                <div class="form-group">
+                    <label class="label" for="empresa">Empresa:</label>
+                    <input class="input" type="text" id="empresa" th:field="*{nomeDaEmpresa}" placeholder="Digite o nome da empresa" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="preco">Preço:</label>
+                    <input type="number" step="0.01" class="input" id="preco" th:field="*{preco}" placeholder="Digite o preço do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label class="label" for="codigo">Código:</label>
+                    <input class="input" type="text" id="codigo" th:field="*{codigo}" placeholder="Digite o código do Produto" required>
+                </div>
+                <br>
+                <button class="submit-button" type="submit">Cadastrar</button>
+            </form>
             <button class="back-button" id="jButton5">&lt;</button>
-        </div>
+        </div>      
     </div>
 
     <script>
-        function validateForm() {
-            var nome = document.getElementById("f1").value;
-            var tipo = document.getElementById("f2").value;
-            var descricao = document.getElementById("f3").value;
-            var empresa = document.getElementById("f4").value;
-            var preco = document.getElementById("f5").value;
-            var codigo = document.getElementById("f6").value;
-
-            if (nome === "" || tipo === "" || descricao === "" || empresa === "" || preco === "" || codigo === "") {
-                alert("Por favor, preencha todos os campos.");
-            } else {
-                alert("Cadastro realizado com sucesso!");
-            }
-        }
-
-        document.getElementById("jButton6").addEventListener("click", validateForm);
-
         document.getElementById("jButton5").addEventListener("click", function () {
-            window.location.href = "tela_seleção.html";
+            window.location.href = "/selecao";
         });
     </script>
 </body>
